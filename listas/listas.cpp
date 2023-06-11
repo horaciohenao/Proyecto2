@@ -15,8 +15,9 @@ void printarray(int* array, int size ) {
 }
 
 void bubbleSort(int* array, int size) {
-    cout << "\n== Estos son tus valores == \n\n";
     int isize = 0;
+    
+    cout << "\n== Estos son tus valores == \n\n";
     
     for (int i = 0; i < size; i++) {
         if (array[i] == -345889306) {
@@ -50,7 +51,7 @@ void bubbleSort(int* array, int size) {
     for (int i = 0; i < isize; i++) {
         cout << array[i] << "    ";
     }
-        cout << endl << endl;
+    cout << endl << endl;
 }
 
 void insertionSort(int* array, int size) {
@@ -91,8 +92,52 @@ void insertionSort(int* array, int size) {
     for (int i = 0; i < isize; i++) {
         cout << array[i] << "    ";
     }
-        cout << endl << endl;
-        
+    cout << endl << endl;
+}
+
+void selectionSort(int* array, int size) {
+    int cache = 0;
+    int isize = 0;
+    
+    cout << "\n== Estos son tus valores == \n\n";
+    
+    for (int i = 0; i < size; i++) {
+        if (array[i] == -345889306) {
+            break;
+        }
+        cout << array[i] << "    ";
+        isize++;
+    }
+
+    cout << "\n\n== Ordenando (SelectionSort)... ==\n\n";
+
+    for ( int i = 0; i < isize - 1; i++ ) {
+        int minIndex = i;
+
+        for ( int j = i + 1; j < isize; j++ ) {
+            if ( array[j] < array[minIndex] ) {
+                minIndex = j;
+            }
+        }
+
+        if ( minIndex != i ) {
+            cache = array[i];
+            array[i] = array[minIndex];
+            array[minIndex] = cache;
+        }
+
+        for (int k = 0; k < isize; k++) {
+            cout << array[k] << "    ";
+        }
+        cout << endl;
+    }
+    
+    cout << "\n== Estos son tus valores ordenados == \n\n";
+    
+    for (int i = 0; i < isize; i++) {
+        cout << array[i] << "    ";
+    }
+    cout << endl << endl;
 }
 
 void control(int* array, char ope, int x) {
@@ -156,6 +201,10 @@ void control(int* array, char ope, int x) {
     else if (ope == 'n') {
         insertionSort(array, x);
     }
+    else if (ope == 'l') {
+        selectionSort(array, x);
+    }
+    
 }
 
 int main() {
@@ -184,7 +233,6 @@ int main() {
         lista[10] = 33;
         lista[11] = -8;
         lista[12] = 27;
-        lista[13] = -15;
     }
 
     while (true) {
@@ -200,6 +248,7 @@ int main() {
     cout << "a | acceder a un valor en una posicion" << endl<< endl;
     cout << "u | aplicar bubble sort" << endl;
     cout << "n | aplicar insertion sort" << endl;
+    cout << "l | aplicar selection sort" << endl;
 
     cin >> ansx;
 
