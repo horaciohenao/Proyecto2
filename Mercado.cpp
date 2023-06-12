@@ -1,11 +1,12 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 void printarray(int* array, int size ) {
     cout << endl << "[ ";
     for (int i = 0; i < size; i++){
-        if(array[i]==-345889306) {
+        if(array[i]==0) {
             cout << "_" << " ";
         } else {
             cout << array[i] << " ";
@@ -21,7 +22,7 @@ void bubbleSort(int* array, int size) {
     cout << "\n== Estos son tus valores == \n\n";
     
     for (int i = 0; i < size; i++) {
-        if (array[i] == -345889306) {
+        if (array[i] == 0) {
             break;
         }
         cout << array[i] << "    ";
@@ -62,7 +63,7 @@ void insertionSort(int* array, int size) {
     cout << "\n== Estos son tus valores == \n\n";
     
     for (int i = 0; i < size; i++) {
-        if (array[i] == -345889306) {
+        if (array[i] == 0) {
             break;
         }
         cout << array[i] << "    ";
@@ -103,7 +104,7 @@ void selectionSort(int* array, int size) {
     cout << "\n== Estos son tus valores == \n\n";
     
     for (int i = 0; i < size; i++) {
-        if (array[i] == -345889306) {
+        if (array[i] == 0) {
             break;
         }
         cout << array[i] << "    ";
@@ -147,8 +148,10 @@ void control(int* array, char ope, int x) {
         int ansx;
         cout << endl << "Ingrese el valor que desea introducir: ";
         cin >> ansx;
+        if(ansx=0){cout << endl << "0 no se permite en este programa";}
+        cout << endl << "Ingrese el valor que desea introducir: ";
         for (int i = 0; i < x; i++){
-            if(array[i]==-345889306) {
+            if(array[i]==0) {
                 array[i] = ansx;
                 return;
             }
@@ -156,8 +159,8 @@ void control(int* array, char ope, int x) {
     }
 	else if ( ope == 'e' ){
         for (int i = 0; i < x; i++){
-            if(array[i]!=-345889306) {
-                array[i] = -345889306;
+            if(array[i]!=0) {
+                array[i] = 0;
                 return;
             }
         }
@@ -176,11 +179,11 @@ void control(int* array, char ope, int x) {
     }
 	else if ( ope == 't' ){
         for (int i = 0; i < x; i++){
-            if(array[0]==-345889306) {
+            if(array[0]==0) {
                 cout << "La lista esta vacia" <<endl;
                 return;
             }
-            if(array[i]==-345889306) {
+            if(array[i]==0) {
                 cout << "El tamnño de la lista es " << i-1<<endl;
                 return;
             }
@@ -191,7 +194,7 @@ void control(int* array, char ope, int x) {
         cout << "Ingrese una posicion para obtener el valor: ";
         cin >> ansx;
         
-            if(array[ansx]!=-345889306) {
+            if(array[ansx]!=0) {
                 cout << endl << "El valor en la posicion " << ansx <<" es:" <<  array[ansx] << endl;
             } else {
                 cout << endl << "El valor en la posicion " << ansx <<" esta vacio" << endl;
@@ -219,7 +222,7 @@ int main() {
 
     int codigo[x];
 
-    for ( int i = 0; i < x; i++){codigo[i] = -345889306; }
+    for ( int i = 0; i < x; i++){codigo[i] = 0; }
     
     if(1==1) {
         codigo[0] = 5050;
