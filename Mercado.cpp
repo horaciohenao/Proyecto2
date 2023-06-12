@@ -25,6 +25,8 @@ void printInt(int* array, int size ) {
     for (int i = 0; i < size; i++){
         if(array[i]==0) {
             cout << "_" << " ";
+        } else if (array[i]==-1) {
+            cout << "0" << " ";
         } else {
             cout << array[i] << " ";
         }
@@ -208,7 +210,7 @@ int bcontrol(int* array, char ope, int x, int val) {
                 return 0;
             }
             if(array[i]==0) {
-                return i-1;
+                return i;
             }
         }
     }
@@ -308,6 +310,7 @@ void control(int* array, char ope, int x, bool t) {
         cout << "Introduzca el precio de venta"<<endl;
         cin >> pventa;
         cout << "Introduzca el porcentaje de descuento máximo"<<endl;
+        cout << "SI EL DESCUENTO ES 0 INTRODUZCA -1"<<endl;
         cin >> dmaximo;
         cout << "Introduzca las unidades en existencia"<<endl;
         cin >> unie;
@@ -358,7 +361,7 @@ int main() {
         color[0] = "rojo" ;
         preCompra[0] = 10000 ;
         preVenta[0] = 12000 ;
-        porcenDesMax[0] = 0 ;
+        porcenDesMax[0] = 1 ;
         unidExis[0] = 45 ;
         metrica[0] = "talla" ;
         categoria[0] = "calzado" ;
