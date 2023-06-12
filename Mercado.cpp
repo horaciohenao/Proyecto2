@@ -361,7 +361,7 @@ int main() {
         color[0] = "rojo" ;
         preCompra[0] = 10000 ;
         preVenta[0] = 12000 ;
-        porcenDesMax[0] = 1 ;
+        porcenDesMax[0] = -1 ;
         unidExis[0] = 45 ;
         metrica[0] = "talla" ;
         categoria[0] = "calzado" ;
