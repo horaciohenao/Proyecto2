@@ -144,6 +144,7 @@ void control(int* array, char ope, int x) {
     if ( ope == 'i' ){
         int ansx;
         cout << endl << "Ingrese el valor que desea introducir: ";
+        if(ansx==-345889306){cout << endl << "Ese valor no se permite en este programa"<<endl;return;}
         cin >> ansx;
         for (int i = 0; i < x; i++){
             if(array[i]==-345889306) {
@@ -174,12 +175,12 @@ void control(int* array, char ope, int x) {
     }
 	else if ( ope == 't' ){
         for (int i = 0; i < x; i++){
-            if(array[0]==-345889306) {
+            if(array[0]==0) {
                 cout << "La lista esta vacia" <<endl;
                 return;
             }
-            if(array[i]!=-345889306) {
-                cout << "El tamnño de la lista es " << i+1<<endl;
+            if(array[i]==0) {
+                cout << "El tamnño de la lista es " << i-1<<endl;
                 return;
             }
         }

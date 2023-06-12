@@ -148,7 +148,7 @@ void control(int* array, char ope, int x) {
         int ansx;
         cout << endl << "Ingrese el valor que desea introducir: ";
         cin >> ansx;
-        if(ansx=0){cout << endl << "0 no se permite en este programa";}
+        if(ansx==0){cout << endl << "0 no se permite en este programa"<<endl;return;}
         cout << endl << "Ingrese el valor que desea introducir: ";
         for (int i = 0; i < x; i++){
             if(array[i]==0) {
@@ -221,13 +221,29 @@ int main() {
     // cin >> x;
 
     int codigo[x];
+    string nombre[x];
+    string marca[x];
+    string color[x];
+    int preCompra[x];
+    int preVenta[x];
+    int porcenDesMax[x];
+    int unidExis[x];
+    string metrica[x];
+    string categoria[x];
 
     for ( int i = 0; i < x; i++){codigo[i] = 0; }
+    for ( int i = 0; i < x; i++){nombre[i] = "null"; }
+    for ( int i = 0; i < x; i++){marca[i] = "null"; }
+    for ( int i = 0; i < x; i++){color[i] = "null"; }
+    for ( int i = 0; i < x; i++){preCompra[i] = 0; }
+    for ( int i = 0; i < x; i++){preVenta[i] = 0; }
+    for ( int i = 0; i < x; i++){porcenDesMax[i] = 0; }
+    for ( int i = 0; i < x; i++){unidExis[i] = 0; }
+    for ( int i = 0; i < x; i++){metrica[i] = "null"; }
+    for ( int i = 0; i < x; i++){categoria[i] = "null"; }
     
     if(1==1) {
         codigo[0] = 5050;
-        codigo[1] = 2323;
-        codigo[2] = 1323;
     }
 
     while (true) {
