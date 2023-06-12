@@ -197,6 +197,12 @@ void control(int* array, char ope, int x) {
                 cout << endl << "El valor en la posicion " << ansx <<" esta vacio" << endl;
             }
     }
+    else if ( ope == 'f' ) {
+        
+    }
+    else {
+        cout << endl << "OPERACION NO VALIDA" << endl;
+    }
     /* else if (ope == 'u') {bubbleSort(array, x);}
     else if (ope == 'n') {insertionSort(array, x);}
     else if (ope == 'l') {selectionSort(array, x);}*/
@@ -219,16 +225,6 @@ int main() {
         codigo[0] = 5050;
         codigo[1] = 2323;
         codigo[2] = 1323;
-        codigo[3] = 0001;
-        codigo[4] = 1010;
-        codigo[5] = 1515;
-        codigo[6] = 7777;
-        codigo[7] = 4242;
-        codigo[8] = 1110;
-        codigo[9] = 1515;
-        codigo[10] = 3333;
-        codigo[11] = 1818;
-        codigo[12] = 2727;
     }
 
     while (true) {
@@ -239,7 +235,7 @@ int main() {
 
     printarray(codigo, x);
     
-    cout << "f | insertar valor" << endl;
+    cout << "f | realizar compra" << endl;
     
     /*
     cout << "i | insertar valor" << endl;
