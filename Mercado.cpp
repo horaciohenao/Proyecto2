@@ -3,6 +3,23 @@
 
 using namespace std;
 
+const int x = 15;
+char ansx;
+
+// cout << "Introduzca el tamano para la lista"<<endl;
+// cin >> x;
+
+int codigo[x];
+string nombre[x];
+string marca[x];
+string color[x];
+int preCompra[x];
+int preVenta[x];
+int porcenDesMax[x];
+int unidExis[x];
+string metrica[x];
+string categoria[x];
+
 void printInt(int* array, int size ) {
     cout << endl << "[ ";
     for (int i = 0; i < size; i++){
@@ -15,7 +32,7 @@ void printInt(int* array, int size ) {
     cout << "]" << endl << endl;
 }
 
-void printInt(string* array, int size ) {
+void printArr(string* array, int size ) {
     cout << endl << "[ ";
     for (int i = 0; i < size; i++){
         if(array[i]=="null") {
@@ -69,7 +86,7 @@ void bubbleSort(int* array, int size) {
 }
 
 void insertionSort(int* array, int size) {
-    int cache = 0;
+    int cachein = 0;
     int isize = 0;
 
     cout << "\n== Estos son tus valores == \n\n";
@@ -85,15 +102,15 @@ void insertionSort(int* array, int size) {
     cout << "\n\n== Ordenando (InsertionSort)... ==\n\n";
 
     for (int i = 1; i < isize; i++) {
-        cache = array[i];
+        cachein = array[i];
         int j = i - 1;
 
-        while (j >= 0 && array[j] > cache) {
+        while (j >= 0 && array[j] > cachein) {
             array[j + 1] = array[j];
             j = j - 1;
         }
 
-        array[j + 1] = cache;
+        array[j + 1] = cachein;
 
         for (int k = 0; k < isize; k++) {
             cout << array[k] << "    ";
@@ -110,7 +127,7 @@ void insertionSort(int* array, int size) {
 }
 
 void selectionSort(int* array, int size) {
-    int cache = 0;
+    int cachein = 0;
     int isize = 0;
     
     cout << "\n== Estos son tus valores == \n\n";
@@ -135,9 +152,9 @@ void selectionSort(int* array, int size) {
         }
 
         if ( minIndex != i ) {
-            cache = array[i];
+            cachein = array[i];
             array[i] = array[minIndex];
-            array[minIndex] = cache;
+            array[minIndex] = cachein;
         }
 
         for (int k = 0; k < isize; k++) {
@@ -185,19 +202,17 @@ int bcontrol(int* array, char ope, int x, int val) {
         } 
         return -1;
     }
-	/*else if ( ope == 't' ){
+	else if ( ope == 't' ){
         for (int i = 0; i < x; i++){
             if(array[0]==0) {
-                cout << "La lista esta vacia" <<endl;
-                return;
+                return 0;
             }
             if(array[i]==0) {
-                cout << "El tamnño de la lista es " << i-1<<endl;
-                return;
+                return i-1;
             }
         }
     }
-	else if ( ope == 'a' ){
+	/*else if ( ope == 'a' ){
         int ansx;
         cout << "Ingrese una posicion para obtener el valor: ";
         cin >> ansx;
@@ -273,19 +288,21 @@ void control(int* array, char ope, int x, bool t) {
             }
     }
     else if ( ope == 'f' ) {
-        int codigo, pcompra, pventa, dmaximo, unie, cache;
-        string nombre, marca, mmedida;
+        int codigov, pcompra, pventa, dmaximo, unie, cachein;
+        string nombrev, marcav, mmedida, colorv, categ;
         cout << "Introduzca el codigo"<<endl;
-        cin >> codigo;
+        cin >> codigov;
         
-        if ( bcontrol(array, 'b', x, codigo)==0 ) {
+        if ( bcontrol(array, 'b', x, codigov)==0 ) {
         cout << "El producto ya parece existir"<<endl;
         return;
         }
         cout << "Introduzca el nombre"<<endl;
-        cin >> nombre;
+        cin >> nombrev;
         cout << "Introduzca el marca"<<endl;
-        cin >> marca;
+        cin >> marcav;
+        cout << "Introduzca el color"<<endl;
+        cin >> colorv;
         cout << "Introduzca el precio de compra"<<endl;
         cin >> pcompra;
         cout << "Introduzca el precio de venta"<<endl;
@@ -296,16 +313,21 @@ void control(int* array, char ope, int x, bool t) {
         cin >> unie;
         cout << "Introduzca las métricas de medida"<<endl;
         cin >> mmedida;
-        /*int codigo[x];
-        string nombre[x];
-        string marca[x];
-        string color[x];
-        int preCompra[x];
-        int preVenta[x];
-        int porcenDesMax[x];
-        int unidExis[x];
-        string metrica[x];
-        string categoria[x];*/
+        cout << "Introduzca la categoria"<<endl;
+        cin >> categ;
+        cachein = bcontrol(array, 't', x, codigov);
+
+        codigo[cachein] = codigov ;
+        nombre[cachein] = nombrev ;
+        marca[cachein] = marcav ;
+        color[cachein] = colorv ;
+        preCompra[cachein] = pcompra ;
+        preVenta[cachein] = pventa ;
+        porcenDesMax[cachein] = dmaximo ;
+        unidExis[cachein] = unie ;
+        metrica[cachein] = mmedida ;
+        categoria[cachein] = categ ;
+
     }
     else {
         cout << endl << "OPERACION NO VALIDA" << endl;
@@ -317,23 +339,6 @@ void control(int* array, char ope, int x, bool t) {
 }
 
 int main() {
-
-    int x = 15;
-    char ansx;
-    
-    // cout << "Introduzca el tamano para la lista"<<endl;
-    // cin >> x;
-
-    int codigo[x];
-    string nombre[x];
-    string marca[x];
-    string color[x];
-    int preCompra[x];
-    int preVenta[x];
-    int porcenDesMax[x];
-    int unidExis[x];
-    string metrica[x];
-    string categoria[x];
 
     for ( int i = 0; i < x; i++){codigo[i] = 0; }
     for ( int i = 0; i < x; i++){nombre[i] = "null"; }
@@ -348,6 +353,15 @@ int main() {
     
     if(1==1) {
         codigo[0] = 5050;
+        nombre[0] = "zapato" ;
+        marca[0] = "zap" ;
+        color[0] = "rojo" ;
+        preCompra[0] = 10000 ;
+        preVenta[0] = 12000 ;
+        porcenDesMax[0] = 0 ;
+        unidExis[0] = 45 ;
+        metrica[0] = "talla" ;
+        categoria[0] = "calzado" ;
     }
 
     while (true) {
@@ -357,6 +371,14 @@ int main() {
     cout << "Introduzca la operacion a realizar"<<endl;
 
     printInt(codigo, x);
+    printArr(nombre, x);
+    printArr(marca, x);
+    printArr(color, x);
+    printInt(preCompra, x);
+    printInt(preVenta, x);
+    printInt(porcenDesMax, x);
+    printArr(metrica, x);
+    printArr(categoria, x);
     
     cout << "f | realizar compra" << endl;
     
