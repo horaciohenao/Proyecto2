@@ -201,6 +201,25 @@ void control(int* array, char ope, int x) {
             }
     }
     else if ( ope == 'f' ) {
+        int codigo, pcompra, pventa, dmaximo, unie;
+        string nombre, marca, mmedida;
+        // , , ,  (kg, litros, metros, unidad) y categoría.
+        cout << "Introduzca el codigo"<<endl;
+        cin >> codigo;
+        cout << "Introduzca el nombre"<<endl;
+        cin >> nombre;
+        cout << "Introduzca el marca"<<endl;
+        cin >> marca;
+        cout << "Introduzca el precio de compra"<<endl;
+        cin >> pcompra;
+        cout << "Introduzca el precio de venta"<<endl;
+        cin >> pventa;
+        cout << "Introduzca el porcentaje de descuento máximo"<<endl;
+        cin >> dmaximo;
+        cout << "Introduzca las unidades en existencia"<<endl;
+        cin >> unie;
+        cout << "Introduzca las métricas de medida"<<endl;
+        cin >> mmedida;
         
     }
     else {
