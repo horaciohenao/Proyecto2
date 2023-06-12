@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void printarray(int* array, int size ) {
+void printInt(int* array, int size ) {
     cout << endl << "[ ";
     for (int i = 0; i < size; i++){
         if(array[i]==-345889306) {

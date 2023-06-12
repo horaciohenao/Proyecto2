@@ -3,10 +3,22 @@
 
 using namespace std;
 
-void printarray(int* array, int size ) {
+void printInt(int* array, int size ) {
     cout << endl << "[ ";
     for (int i = 0; i < size; i++){
         if(array[i]==0) {
+            cout << "_" << " ";
+        } else {
+            cout << array[i] << " ";
+        }
+    }
+    cout << "]" << endl << endl;
+}
+
+void printInt(string* array, int size ) {
+    cout << endl << "[ ";
+    for (int i = 0; i < size; i++){
+        if(array[i]=="null") {
             cout << "_" << " ";
         } else {
             cout << array[i] << " ";
@@ -198,8 +210,9 @@ int bcontrol(int* array, char ope, int x, int val) {
     }*/
 }
 
-void control(int* array, char ope, int x) {
+void control(int* array, char ope, int x, bool t) {
     if ( ope == 'i' ){
+        if(t==false){cout << endl << "Comando deshabilitado"<<endl;return;}
         int ansx;
         cout << endl << "Ingrese el valor que desea introducir: ";
         cin >> ansx;
@@ -213,6 +226,7 @@ void control(int* array, char ope, int x) {
         }
     }
 	else if ( ope == 'e' ){
+        if(t==false){cout << endl << "Comando deshabilitado"<<endl;return;}
         for (int i = 0; i < x; i++){
             if(array[i]!=0) {
                 array[i] = 0;
@@ -221,6 +235,7 @@ void control(int* array, char ope, int x) {
         }
     }
 	else if ( ope == 'b' ){
+        if(t==false){cout << endl << "Comando deshabilitado"<<endl;return;}
         int ansx;
         cout << "Ingrese un valor para buscar: ";
         cin >> ansx;
@@ -233,6 +248,7 @@ void control(int* array, char ope, int x) {
         cout << "El valor no se encontro en la lista"<<endl;
     }
 	else if ( ope == 't' ){
+        if(t==false){cout << endl << "Comando deshabilitado"<<endl;return;}
         for (int i = 0; i < x; i++){
             if(array[0]==0) {
                 cout << "La lista esta vacia" <<endl;
@@ -245,6 +261,7 @@ void control(int* array, char ope, int x) {
         }
     }
 	else if ( ope == 'a' ){
+        if(t==false){cout << endl << "Comando deshabilitado"<<endl;return;}
         int ansx;
         cout << "Ingrese una posicion para obtener el valor: ";
         cin >> ansx;
@@ -262,7 +279,7 @@ void control(int* array, char ope, int x) {
         cin >> codigo;
         
         if ( bcontrol(array, 'b', x, codigo)==0 ) {
-        cout << "El producto ya parece que exite"<<endl;
+        cout << "El producto ya parece existir"<<endl;
         return;
         }
         cout << "Introduzca el nombre"<<endl;
@@ -279,6 +296,16 @@ void control(int* array, char ope, int x) {
         cin >> unie;
         cout << "Introduzca las métricas de medida"<<endl;
         cin >> mmedida;
+        /*int codigo[x];
+        string nombre[x];
+        string marca[x];
+        string color[x];
+        int preCompra[x];
+        int preVenta[x];
+        int porcenDesMax[x];
+        int unidExis[x];
+        string metrica[x];
+        string categoria[x];*/
     }
     else {
         cout << endl << "OPERACION NO VALIDA" << endl;
@@ -329,7 +356,7 @@ int main() {
     
     cout << "Introduzca la operacion a realizar"<<endl;
 
-    printarray(codigo, x);
+    printInt(codigo, x);
     
     cout << "f | realizar compra" << endl;
     
@@ -345,7 +372,7 @@ int main() {
 
     cin >> ansx;
 
-    control(codigo, ansx, x);
+    control(codigo, ansx, x, false);
         
     }
     
