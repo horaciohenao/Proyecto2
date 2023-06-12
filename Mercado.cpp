@@ -143,6 +143,61 @@ void selectionSort(int* array, int size) {
 }
 */
 
+int bcontrol(int* array, char ope, int x, int val) {
+    /*if ( ope == 'i' ){
+        int ansx;
+        cout << endl << "Ingrese el valor que desea introducir: ";
+        cin >> ansx;
+        if(ansx==0){cout << endl << "0 no se permite en este programa"<<endl;return;}
+        cout << endl << "Ingrese el valor que desea introducir: ";
+        for (int i = 0; i < x; i++){
+            if(array[i]==0) {
+                array[i] = ansx;
+                return;
+            }
+        }
+    }
+	else if ( ope == 'e' ){
+        for (int i = 0; i < x; i++){
+            if(array[i]!=0) {
+                array[i] = 0;
+                return;
+            }
+        }
+    }
+	else*/ if ( ope == 'b' ){
+        for (int i = 0; i < x; i++){
+            if(array[i]==val) {
+            return i;
+            }
+        } 
+        return -1;
+    }
+	/*else if ( ope == 't' ){
+        for (int i = 0; i < x; i++){
+            if(array[0]==0) {
+                cout << "La lista esta vacia" <<endl;
+                return;
+            }
+            if(array[i]==0) {
+                cout << "El tamnño de la lista es " << i-1<<endl;
+                return;
+            }
+        }
+    }
+	else if ( ope == 'a' ){
+        int ansx;
+        cout << "Ingrese una posicion para obtener el valor: ";
+        cin >> ansx;
+        
+            if(array[ansx]!=0) {
+                cout << endl << "El valor en la posicion " << ansx <<" es:" <<  array[ansx] << endl;
+            } else {
+                cout << endl << "El valor en la posicion " << ansx <<" esta vacio" << endl;
+            }
+    }*/
+}
+
 void control(int* array, char ope, int x) {
     if ( ope == 'i' ){
         int ansx;
@@ -201,11 +256,15 @@ void control(int* array, char ope, int x) {
             }
     }
     else if ( ope == 'f' ) {
-        int codigo, pcompra, pventa, dmaximo, unie;
+        int codigo, pcompra, pventa, dmaximo, unie, cache;
         string nombre, marca, mmedida;
-        // , , ,  (kg, litros, metros, unidad) y categoría.
         cout << "Introduzca el codigo"<<endl;
         cin >> codigo;
+        
+        if ( bcontrol(array, 'b', x, codigo)==0 ) {
+        cout << "El producto ya parece que exite"<<endl;
+        return;
+        }
         cout << "Introduzca el nombre"<<endl;
         cin >> nombre;
         cout << "Introduzca el marca"<<endl;
@@ -220,7 +279,6 @@ void control(int* array, char ope, int x) {
         cin >> unie;
         cout << "Introduzca las métricas de medida"<<endl;
         cin >> mmedida;
-        
     }
     else {
         cout << endl << "OPERACION NO VALIDA" << endl;
