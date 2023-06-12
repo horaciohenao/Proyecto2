@@ -180,8 +180,8 @@ void control(int* array, char ope, int x) {
                 cout << "La lista esta vacia" <<endl;
                 return;
             }
-            if(array[i]!=-345889306) {
-                cout << "El tamnño de la lista es " << i+1<<endl;
+            if(array[i]==-345889306) {
+                cout << "El tamnño de la lista es " << i-1<<endl;
                 return;
             }
         }
@@ -205,52 +205,57 @@ void control(int* array, char ope, int x) {
 
 int main() {
 
-    int x = 10000;
+    int x = 15;
     char ansx;
     
     // cout << "Introduzca el tamano para la lista"<<endl;
     // cin >> x;
 
-    int lista[x];
+    int codigo[x];
 
-    for ( int i = 0; i < x; i++){lista[i] = -345889306; }
+    for ( int i = 0; i < x; i++){codigo[i] = -345889306; }
     
-    if(0==1) {
-        lista[0] = 50;
-        lista[1] = 23;
-        lista[2] = -23;
-        lista[3] = 0;
-        lista[4] = 10;
-        lista[5] = -5;
-        lista[6] = 7;
-        lista[7] = 42;
-        lista[8] = -10;
-        lista[9] = 15;
-        lista[10] = 33;
-        lista[11] = -8;
-        lista[12] = 27;
+    if(1==1) {
+        codigo[0] = 5050;
+        codigo[1] = 2323;
+        codigo[2] = 1323;
+        codigo[3] = 0001;
+        codigo[4] = 1010;
+        codigo[5] = 1515;
+        codigo[6] = 7777;
+        codigo[7] = 4242;
+        codigo[8] = 1110;
+        codigo[9] = 1515;
+        codigo[10] = 3333;
+        codigo[11] = 1818;
+        codigo[12] = 2727;
     }
 
     while (true) {
     
+    cout << "= Lista de compras ="<<endl<<endl;
+    
     cout << "Introduzca la operacion a realizar"<<endl;
 
-    // printarray(lista, x);
-
+    printarray(codigo, x);
+    
+    cout << "f | insertar valor" << endl;
+    
+    /*
     cout << "i | insertar valor" << endl;
     cout << "e | eliminar valor" << endl;
     cout << "b | buscar valor" << endl;
     cout << "t | obtener tamano de la lista" << endl;
     cout << "a | acceder a un valor en una posicion" << endl<< endl;
-    /*cout << "u | aplicar bubble sort" << endl;
+    cout << "u | aplicar bubble sort" << endl;
     cout << "n | aplicar insertion sort" << endl;
     cout << "l | aplicar selection sort" << endl;*/
 
     cin >> ansx;
 
-    control(lista, ansx, x);
+    control(codigo, ansx, x);
         
     }
     
     return 0;
-}11
+}
