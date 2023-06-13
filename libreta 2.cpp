@@ -295,6 +295,10 @@ void control(int* array, char ope, int x, bool t) {
         cin >> proveedorv;
         cout << "Introduzca el codigo"<<endl;
         cin >> codigov;
+        if ( bcontrol(array, 'b', x, codigov)==0 ) {
+        cout << "El producto ya parece existir"<<endl;
+        return;
+        }
         cout << "Introduzca el precio de compra"<<endl;
         cin >> pcompra;
         cout << "Introduzca la cantidad en unidad de medida comprada"<<endl;

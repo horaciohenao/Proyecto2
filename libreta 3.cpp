@@ -305,12 +305,17 @@ void control(int* array, char ope, int x, bool t) {
             }
     }
     else if ( ope == 'f' ) {
-        int cachein;
+        int cachein, cedulav;
         
         cachein = bcontrol(array, 't', x, 1);
 
         cout << "Introduzca la cedula: " << endl;
-        cin >> cedula[cachein];
+        cin >> cedulav;
+        if ( bcontrol(array, 'b', x, cedulav)==0 ) {
+        cout << "La cedula ya parece existir"<<endl;
+        return;
+        }
+        cedula[cachein] = cedulav;
         cout << "Introduzca el nombre: " << endl;
         cin >> nombre[cachein];
         cout << "Introduzca el primer apellido: " << endl;
@@ -383,7 +388,7 @@ int main() {
     printChar(vip, x);
 
     
-    cout << "f | realizar compra" << endl;
+    cout << "f | agregar cliente" << endl;
     
     /*
     cout << "i | insertar valor" << endl;
