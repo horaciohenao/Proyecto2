@@ -9,16 +9,10 @@ char ansx;
 // cout << "Introduzca el tamano para la lista"<<endl;
 // cin >> x;
 
-int cedula[x];
-string nombre[x];
-string apellido1[x];
-string apellido2[x];
-string genero[x];
-int fechanaci[x];
-int telefono[x];
-string email[x];
-string direccion[x];
-char vip[x];
+int fecha[x];
+int cedulaCliente[x];
+string metodoPago[x];
+char modalidad[x];
 
 void printInt(int* array, int size ) {
     cout << endl << "[ ";
@@ -50,9 +44,9 @@ void printChar(char* array, int size) {
     cout << endl << "[ ";
     for (int i = 0; i < size; i++){
         if (array[i] == '1') {
-            cout << "vip ";
+            cout << "dir ";
         } else if (array[i] == '2') {
-            cout << "ref ";
+            cout << "dom ";
         } else {
             cout << "_ ";
         }
@@ -309,29 +303,19 @@ void control(int* array, char ope, int x, bool t) {
         
         cachein = bcontrol(array, 't', x, 1);
 
+        cout << "Introduzca la fecha: " << endl;
+        cout << "FORMATO DE FECHA AAMMDD"<<endl;
+        cin >> fecha[cachein];
         cout << "Introduzca la cedula: " << endl;
-        cin >> cedulav;
-        if ( bcontrol(array, 'b', x, cedulav)==0 ) {
-        cout << "La cedula ya parece existir"<<endl;
-        return;
+        cin >> cedulaCliente[cachein];
+        if (bcontrol(array, 'b', x, cedulaCliente[cachein]) == 0) {
+            cout << "La cedula ya parece existir" << endl;
+            return;
         }
-        cedula[cachein] = cedulav;
-        cout << "Introduzca el nombre: " << endl;
-        cin >> nombre[cachein];
-        cout << "Introduzca el primer apellido: " << endl;
-        cin >> apellido1[cachein];
-        cout << "Introduzca el segundo apellido: " << endl;
-        cin >> apellido2[cachein];
-        cout << "Introduzca lael genero: " << endl;
-        cin >> genero[cachein];
-        cout << "Introduzca el telefono: " << endl;
-        cin >> telefono[cachein];
-        cout << "Introduzca el email: " << endl;
-        cin >> email[cachein];
-        cout << "Introduzca la direccion: " << endl;
-        cin >> direccion[cachein];
-        cout << "Es VIP? (1 si, 2  no): " << endl;
-        cin >> vip[cachein];
+        cout << "Introduzca el metodo de pago: " << endl;
+        cin >> metodoPago[cachein];
+        cout << "Introduzca la modalidad( 1 directa, 2 domicilio): " << endl;
+        cin >> modalidad[cachein];
 
     }
     else {
@@ -345,29 +329,18 @@ void control(int* array, char ope, int x, bool t) {
 
 int main() {
 
-    for (int i = 0; i < x; i++) {cedula[i] = 0;}
-    for (int i = 0; i < x; i++) {nombre[i] = "null";}
-    for (int i = 0; i < x; i++) {apellido1[i] = "null";}
-    for (int i = 0; i < x; i++) {apellido2[i] = "null";}
-    for (int i = 0; i < x; i++) {genero[i] = "null";}
-    for (int i = 0; i < x; i++) {fechanaci[i] = 0;}
-    for (int i = 0; i < x; i++) {telefono[i] = 0;}
-    for (int i = 0; i < x; i++) {email[i] = "null";}
-    for (int i = 0; i < x; i++) {direccion[i] = "null";}
-    for (int i = 0; i < x; i++) {vip[i] = '_';}
+    for (int i = 0; i < x; i++) { fecha[i] = 0; }
+    for (int i = 0; i < x; i++) { cedulaCliente[i] = 0; }
+    for (int i = 0; i < x; i++) { metodoPago[i] = "null"; }
+    for (int i = 0; i < x; i++) { modalidad[i] = '_'; }
+
 
     
     if(1==1) {
-        cedula[0] = 123456789;
-        nombre[0] = "John";
-        apellido1[0] = "Doe";
-        apellido2[0] = "Smith";
-        genero[0] = "Masculino";
-        fechanaci[0] = 19900101;
-        telefono[0] = 987654321;
-        email[0] = "john.doe@example.com";
-        direccion[0] = "123 Main Street";
-        vip[0] = '1';
+    fecha[0] = 230401;
+    cedulaCliente[0] = 123456789;
+    metodoPago[0] = "Tarjeta";
+    modalidad[0] = '1';
     }
 
     while (true) {
@@ -376,17 +349,10 @@ int main() {
     
     cout << "Introduzca la operacion a realizar"<<endl;
 
-    printInt(cedula, x);
-    printArr(nombre, x);
-    printArr(apellido1, x);
-    printArr(apellido2, x);
-    printArr(genero, x);
-    printInt(fechanaci, x);
-    printInt(telefono, x);
-    printArr(email, x);
-    printArr(direccion, x);
-    printChar(vip, x);
-
+    printInt(fecha, x);
+    printInt(cedulaCliente, x);
+    printArr(metodoPago, x);
+    printChar(modalidad, x);
     
     cout << "f | agregar cliente" << endl;
     
@@ -402,7 +368,7 @@ int main() {
 
     cin >> ansx;
 
-    control(cedula, ansx, x, false);
+    control(cedulaCliente, ansx, x, false);
         
     }
     
