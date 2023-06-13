@@ -307,6 +307,9 @@ void control(int* array, char ope, int x, bool t) {
         preCompra[cachein] = pcompra ;
         cantidades[cachein] = cantidadesv ;
 
+        cout << "El total a pagar CON IVA es: " << (pcompra*1,19) << endl;
+        cout << "El total a pagar SIN IVA es: " << (pcompra) << endl;
+
     }
     else {
         cout << endl << "OPERACION NO VALIDA" << endl;
