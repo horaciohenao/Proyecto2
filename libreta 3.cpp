@@ -9,19 +9,24 @@ char ansx;
 // cout << "Introduzca el tamano para la lista"<<endl;
 // cin >> x;
 
-int fecha[x];
-string proveedor[x];
-int codigo[x];
-int preCompra[x];
-int cantidades[x];
+int cedula[x];
+string nombre[x];
+string apellido1[x];
+string apellido2[x];
+string genero[x];
+int fechanaci[x];
+int telefono[x];
+string email[x];
+string direccion[x];
+char vip[x];
 
 void printInt(int* array, int size ) {
     cout << endl << "[ ";
     for (int i = 0; i < size; i++){
         if(array[i]==0) {
-            cout << "_" << " ";
+            cout << "_ ";
         } else if (array[i]==-1) {
-            cout << "0" << " ";
+            cout << "0 ";
         } else {
             cout << array[i] << " ";
         }
@@ -33,9 +38,23 @@ void printArr(string* array, int size ) {
     cout << endl << "[ ";
     for (int i = 0; i < size; i++){
         if(array[i]=="null") {
-            cout << "_" << " ";
+            cout << "_ ";
         } else {
             cout << array[i] << " ";
+        }
+    }
+    cout << "]" << endl << endl;
+}
+
+void printChar(char* array, int size) {
+    cout << endl << "[ ";
+    for (int i = 0; i < size; i++){
+        if (array[i] == '1') {
+            cout << "vip ";
+        } else if (array[i] == '2') {
+            cout << "ref ";
+        } else {
+            cout << "_ ";
         }
     }
     cout << "]" << endl << endl;
@@ -286,29 +305,28 @@ void control(int* array, char ope, int x, bool t) {
             }
     }
     else if ( ope == 'f' ) {
-        int fechav, codigov, pcompra, cantidadesv, unie, cachein;
-        string proveedorv, marcav, mmedida, colorv, categ;
-        cout << "Introduzca el fecha"<<endl;
-        cout << "FORMATO DE FECHA AAMMDD"<<endl;
-        cin >> fechav;
-        cout << "Introduzca el proveedor"<<endl;
-        cin >> proveedorv;
-        cout << "Introduzca el codigo"<<endl;
-        cin >> codigov;
-        cout << "Introduzca el precio de compra"<<endl;
-        cin >> pcompra;
-        cout << "Introduzca la cantidad en unidad de medida comprada"<<endl;
-        cin >> cantidadesv;
-        cachein = bcontrol(array, 't', x, fechav);
+        int cachein;
+        
+        cachein = bcontrol(array, 't', x, 1);
 
-        fecha[cachein] = fechav ;
-        proveedor[cachein] = proveedorv ;
-        codigo[cachein] = codigov ;
-        preCompra[cachein] = pcompra ;
-        cantidades[cachein] = cantidadesv ;
-
-        cout << "El total a pagar CON IVA es: " << (pcompra*1,19) << endl;
-        cout << "El total a pagar SIN IVA es: " << (pcompra) << endl;
+        cout << "Introduzca la cedula: " << endl;
+        cin >> cedula[cachein];
+        cout << "Introduzca el nombre: " << endl;
+        cin >> nombre[cachein];
+        cout << "Introduzca el primer apellido: " << endl;
+        cin >> apellido1[cachein];
+        cout << "Introduzca el segundo apellido: " << endl;
+        cin >> apellido2[cachein];
+        cout << "Introduzca lael genero: " << endl;
+        cin >> genero[cachein];
+        cout << "Introduzca el telefono: " << endl;
+        cin >> telefono[cachein];
+        cout << "Introduzca el email: " << endl;
+        cin >> email[cachein];
+        cout << "Introduzca la direccion: " << endl;
+        cin >> direccion[cachein];
+        cout << "Es usted VIP? 1 si, 0  no: " << endl;
+        cin >> vip[cachein];
 
     }
     else {
@@ -322,31 +340,48 @@ void control(int* array, char ope, int x, bool t) {
 
 int main() {
 
-    for ( int i = 0; i < x; i++){fecha[i] = 0; }
-    for ( int i = 0; i < x; i++){proveedor[i] = "null"; }
-    for ( int i = 0; i < x; i++){codigo[i] = 0; }
-    for ( int i = 0; i < x; i++){preCompra[i] = 0; }
-    for ( int i = 0; i < x; i++){cantidades[i] = 0; }
+    for (int i = 0; i < x; i++) {cedula[i] = 0;}
+    for (int i = 0; i < x; i++) {nombre[i] = "null";}
+    for (int i = 0; i < x; i++) {apellido1[i] = "null";}
+    for (int i = 0; i < x; i++) {apellido2[i] = "null";}
+    for (int i = 0; i < x; i++) {genero[i] = "null";}
+    for (int i = 0; i < x; i++) {fechanaci[i] = 0;}
+    for (int i = 0; i < x; i++) {telefono[i] = 0;}
+    for (int i = 0; i < x; i++) {email[i] = "null";}
+    for (int i = 0; i < x; i++) {direccion[i] = "null";}
+    for (int i = 0; i < x; i++) {vip[i] = '_';}
+
     
     if(1==1) {
-        fecha[0] = 5050;
-        proveedor[0] = "zapato" ;
-        codigo[0] = 10000 ;
-        preCompra[0] = 12000 ;
-        cantidades[0] = 4 ;
+        cedula[0] = 123456789;
+        nombre[0] = "John";
+        apellido1[0] = "Doe";
+        apellido2[0] = "Smith";
+        genero[0] = "Masculino";
+        fechanaci[0] = 19900101;
+        telefono[0] = 987654321;
+        email[0] = "john.doe@example.com";
+        direccion[0] = "123 Main Street";
+        vip[0] = '1';
     }
 
     while (true) {
     
-    cout << "= Lista de compras ="<<endl<<endl;
+    cout << "= Lista de clientes ="<<endl<<endl;
     
     cout << "Introduzca la operacion a realizar"<<endl;
 
-    printInt(fecha, x);
-    printArr(proveedor, x);
-    printInt(codigo, x);
-    printInt(preCompra, x);
-    printInt(cantidades, x);
+    printInt(cedula, x);
+    printArr(nombre, x);
+    printArr(apellido1, x);
+    printArr(apellido2, x);
+    printArr(genero, x);
+    printInt(fechanaci, x);
+    printInt(telefono, x);
+    printArr(email, x);
+    printArr(direccion, x);
+    printChar(vip, x);
+
     
     cout << "f | realizar compra" << endl;
     
@@ -362,7 +397,7 @@ int main() {
 
     cin >> ansx;
 
-    control(fecha, ansx, x, false);
+    control(cedula, ansx, x, false);
         
     }
     

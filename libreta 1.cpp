@@ -24,9 +24,9 @@ void printInt(int* array, int size ) {
     cout << endl << "[ ";
     for (int i = 0; i < size; i++){
         if(array[i]==0) {
-            cout << "_" << " ";
+            cout << "_ ";
         } else if (array[i]==-1) {
-            cout << "0" << " ";
+            cout << "0 ";
         } else {
             cout << array[i] << " ";
         }
@@ -38,7 +38,7 @@ void printArr(string* array, int size ) {
     cout << endl << "[ ";
     for (int i = 0; i < size; i++){
         if(array[i]=="null") {
-            cout << "_" << " ";
+            cout << "_ ";
         } else {
             cout << array[i] << " ";
         }
