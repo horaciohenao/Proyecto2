@@ -3,7 +3,7 @@
 
 using namespace std;
 
-const int x = 15; //definir tamaño de la lista
+const int x = 15;
 char ansx;
 
 // cout << "Introduzca el tamano para la lista"<<endl;
@@ -46,157 +46,9 @@ void printArr(string* array, int size ) {
     cout << "]" << endl << endl;
 }
 
-/*
-void bubbleSort(int* array, int size) {
-    int isize = 0;
-    
-    cout << "\n== Estos son tus valores == \n\n";
-    
-    for (int i = 0; i < size; i++) {
-        if (array[i] == 0) {
-            break;
-        }
-        cout << array[i] << "    ";
-        isize++;
-    }
-
-    cout << "\n\n== Ordenando (BubbleSort)... ==\n\n";
-
-    for (int i = 0; i < isize - 1; i++) {
-
-        for (int j = 0; j < isize - i - 1; j++) {
-
-            if (array[j + 1] < array[j]) {
-                int temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
-            }
-        }
-
-        for (int k = 0; k < isize; k++) {
-            cout << array[k] << "    ";
-        }
-        cout << endl;
-    }
-    
-    cout << "\n== Estos son tus valores ordenados == \n\n";
-    
-    for (int i = 0; i < isize; i++) {
-        cout << array[i] << "    ";
-    }
-    cout << endl << endl;
-}
-
-void insertionSort(int* array, int size) {
-    int cachein = 0;
-    int isize = 0;
-
-    cout << "\n== Estos son tus valores == \n\n";
-    
-    for (int i = 0; i < size; i++) {
-        if (array[i] == 0) {
-            break;
-        }
-        cout << array[i] << "    ";
-        isize++;
-    }
-
-    cout << "\n\n== Ordenando (InsertionSort)... ==\n\n";
-
-    for (int i = 1; i < isize; i++) {
-        cachein = array[i];
-        int j = i - 1;
-
-        while (j >= 0 && array[j] > cachein) {
-            array[j + 1] = array[j];
-            j = j - 1;
-        }
-
-        array[j + 1] = cachein;
-
-        for (int k = 0; k < isize; k++) {
-            cout << array[k] << "    ";
-        }
-        cout << endl;
-    }
-    
-    cout << "\n== Estos son tus valores ordenados == \n\n";
-    
-    for (int i = 0; i < isize; i++) {
-        cout << array[i] << "    ";
-    }
-    cout << endl << endl;
-}
-
-void selectionSort(int* array, int size) {
-    int cachein = 0;
-    int isize = 0;
-    
-    cout << "\n== Estos son tus valores == \n\n";
-    
-    for (int i = 0; i < size; i++) {
-        if (array[i] == 0) {
-            break;
-        }
-        cout << array[i] << "    ";
-        isize++;
-    }
-
-    cout << "\n\n== Ordenando (SelectionSort)... ==\n\n";
-
-    for ( int i = 0; i < isize - 1; i++ ) {
-        int minIndex = i;
-
-        for ( int j = i + 1; j < isize; j++ ) {
-            if ( array[j] < array[minIndex] ) {
-                minIndex = j;
-            }
-        }
-
-        if ( minIndex != i ) {
-            cachein = array[i];
-            array[i] = array[minIndex];
-            array[minIndex] = cachein;
-        }
-
-        for (int k = 0; k < isize; k++) {
-            cout << array[k] << "    ";
-        }
-        cout << endl;
-    }
-    
-    cout << "\n== Estos son tus valores ordenados == \n\n";
-    
-    for (int i = 0; i < isize; i++) {
-        cout << array[i] << "    ";
-    }
-    cout << endl << endl;
-}
-*/
 
 int bcontrol(int* array, char ope, int x, int val) {
-    /*if ( ope == 'i' ){
-        int ansx;
-        cout << endl << "Ingrese el valor que desea introducir: ";
-        cin >> ansx;
-        if(ansx==0){cout << endl << "0 no se permite en este programa"<<endl;return;}
-        cout << endl << "Ingrese el valor que desea introducir: ";
-        for (int i = 0; i < x; i++){
-            if(array[i]==0) {
-                array[i] = ansx;
-                return;
-            }
-        }
-    }
-	else if ( ope == 'e' ){
-        for (int i = 0; i < x; i++){
-            if(array[i]!=0) {
-                array[i] = 0;
-                return;
-            }
-        }
-    }
-	else*/ 
+
     if ( ope == 'b' ){
         for (int i = 0; i < x; i++){
             if(array[i]==val) {
@@ -215,17 +67,7 @@ int bcontrol(int* array, char ope, int x, int val) {
             }
         }
     }
-	/*else if ( ope == 'a' ){
-        int ansx;
-        cout << "Ingrese una posicion para obtener el valor: ";
-        cin >> ansx;
-        
-            if(array[ansx]!=0) {
-                cout << endl << "El valor en la posicion " << ansx <<" es:" <<  array[ansx] << endl;
-            } else {
-                cout << endl << "El valor en la posicion " << ansx <<" esta vacio" << endl;
-            }
-    }*/
+	
 }
 
 void control(int* array, char ope, int x, bool t) {
@@ -253,24 +95,14 @@ void control(int* array, char ope, int x, bool t) {
         }
     }
 	else if ( ope == 'b' ){
+        if(t==false){cout << endl << "Comando deshabilitado"<<endl;return;}
         int ansx;
-        cout << "Ingrese un codigo para buscar: ";
+        cout << "Ingrese un valor para buscar: ";
         cin >> ansx;
         for (int i = 0; i < x; i++){
             if(array[i]==ansx) {
                 cout << "El valor esta en la posicion (primera coincidencia) " << i <<endl;
-                cout << "Ingrese el nuevo precio de compra para el producto: ";
-                cin>>ansx;
-                preCompra[i]=ansx;
-                preVenta[i]=ansx*1.4;
-                cout << "Ingrese el nuevo porcentage maximo de descuento para el producto: ";
-                cout << "SI EL DESCUENTO ES 0 INTRODUZCA -1"<<endl;
-                cin>>ansx;
-                porcenDesMax[i]=ansx;
-                cout << "Ingrese el nuevo numero de unidades en existencia para el producto: ";
-                cin>>ansx;
-                unidExis[i]+=ansx;
-
+            return;
             }
         } 
         cout << "El valor no se encontro en la lista"<<endl;
@@ -346,9 +178,6 @@ void control(int* array, char ope, int x, bool t) {
     else {
         cout << endl << "OPERACION NO VALIDA" << endl;
     }
-    /* else if (ope == 'u') {bubbleSort(array, x);}
-    else if (ope == 'n') {insertionSort(array, x);}
-    else if (ope == 'l') {selectionSort(array, x);}*/
     
 }
 
@@ -391,22 +220,10 @@ int main() {
     printInt(preCompra, x);
     printInt(preVenta, x);
     printInt(porcenDesMax, x);
-    printInt(unidExis, x);
     printArr(metrica, x);
     printArr(categoria, x);
     
     cout << "f | realizar compra" << endl;
-    
-    /*
-    cout << "i | insertar valor" << endl;
-    cout << "e | eliminar valor" << endl;*/
-    cout << "b | buscar valor" << endl;
-    /*
-    cout << "t | obtener tamano de la lista" << endl;
-    cout << "a | acceder a un valor en una posicion" << endl<< endl;
-    cout << "u | aplicar bubble sort" << endl;
-    cout << "n | aplicar insertion sort" << endl;
-    cout << "l | aplicar selection sort" << endl;*/
 
     cin >> ansx;
 

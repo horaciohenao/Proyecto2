@@ -3,22 +3,17 @@
 
 using namespace std;
 
-const int x = 15; //definir tamaño de la lista
+const int x = 15;
 char ansx;
 
 // cout << "Introduzca el tamano para la lista"<<endl;
 // cin >> x;
 
+int fecha[x];
+string proveedor[x];
 int codigo[x];
-string nombre[x];
-string marca[x];
-string color[x];
 int preCompra[x];
-int preVenta[x];
-int porcenDesMax[x];
-int unidExis[x];
-string metrica[x];
-string categoria[x];
+int cantidades[x];
 
 void printInt(int* array, int size ) {
     cout << endl << "[ ";
@@ -253,24 +248,14 @@ void control(int* array, char ope, int x, bool t) {
         }
     }
 	else if ( ope == 'b' ){
+        if(t==false){cout << endl << "Comando deshabilitado"<<endl;return;}
         int ansx;
-        cout << "Ingrese un codigo para buscar: ";
+        cout << "Ingrese un valor para buscar: ";
         cin >> ansx;
         for (int i = 0; i < x; i++){
             if(array[i]==ansx) {
                 cout << "El valor esta en la posicion (primera coincidencia) " << i <<endl;
-                cout << "Ingrese el nuevo precio de compra para el producto: ";
-                cin>>ansx;
-                preCompra[i]=ansx;
-                preVenta[i]=ansx*1.4;
-                cout << "Ingrese el nuevo porcentage maximo de descuento para el producto: ";
-                cout << "SI EL DESCUENTO ES 0 INTRODUZCA -1"<<endl;
-                cin>>ansx;
-                porcenDesMax[i]=ansx;
-                cout << "Ingrese el nuevo numero de unidades en existencia para el producto: ";
-                cin>>ansx;
-                unidExis[i]+=ansx;
-
+            return;
             }
         } 
         cout << "El valor no se encontro en la lista"<<endl;
@@ -301,46 +286,29 @@ void control(int* array, char ope, int x, bool t) {
             }
     }
     else if ( ope == 'f' ) {
-        int codigov, pcompra, pventa, dmaximo, unie, cachein;
-        string nombrev, marcav, mmedida, colorv, categ;
+        int fechav, codigov, pcompra, cantidadesv, unie, cachein;
+        string proveedorv, marcav, mmedida, colorv, categ;
+        cout << "Introduzca el fecha"<<endl;
+        cout << "FORMATO DE FECHA AAMMDD"<<endl;
+        cin >> fechav;
+        cout << "Introduzca el proveedor"<<endl;
+        cin >> proveedorv;
         cout << "Introduzca el codigo"<<endl;
         cin >> codigov;
-        
-        if ( bcontrol(array, 'b', x, codigov)==0 ) {
-        cout << "El producto ya parece existir"<<endl;
-        return;
-        }
-        cout << "Introduzca el nombre"<<endl;
-        cin >> nombrev;
-        cout << "Introduzca el marca"<<endl;
-        cin >> marcav;
-        cout << "Introduzca el color"<<endl;
-        cin >> colorv;
         cout << "Introduzca el precio de compra"<<endl;
         cin >> pcompra;
-        cout << "Introduzca el precio de venta"<<endl;
-        cin >> pventa;
-        cout << "Introduzca el porcentaje de descuento máximo"<<endl;
-        cout << "SI EL DESCUENTO ES 0 INTRODUZCA -1"<<endl;
-        cin >> dmaximo;
-        cout << "Introduzca las unidades en existencia"<<endl;
-        cin >> unie;
-        cout << "Introduzca las métricas de medida"<<endl;
-        cin >> mmedida;
-        cout << "Introduzca la categoria"<<endl;
-        cin >> categ;
-        cachein = bcontrol(array, 't', x, codigov);
+        cout << "Introduzca la cantidad en unidad de medida comprada"<<endl;
+        cin >> cantidadesv;
+        cachein = bcontrol(array, 't', x, fechav);
 
+        fecha[cachein] = fechav ;
+        proveedor[cachein] = proveedorv ;
         codigo[cachein] = codigov ;
-        nombre[cachein] = nombrev ;
-        marca[cachein] = marcav ;
-        color[cachein] = colorv ;
         preCompra[cachein] = pcompra ;
-        preVenta[cachein] = pventa ;
-        porcenDesMax[cachein] = dmaximo ;
-        unidExis[cachein] = unie ;
-        metrica[cachein] = mmedida ;
-        categoria[cachein] = categ ;
+        cantidades[cachein] = cantidadesv ;
+
+        cout << "El total a pagar CON IVA es: " << (pcompra*1,19) << endl;
+        cout << "El total a pagar SIN IVA es: " << (pcompra) << endl;
 
     }
     else {
@@ -354,28 +322,18 @@ void control(int* array, char ope, int x, bool t) {
 
 int main() {
 
+    for ( int i = 0; i < x; i++){fecha[i] = 0; }
+    for ( int i = 0; i < x; i++){proveedor[i] = "null"; }
     for ( int i = 0; i < x; i++){codigo[i] = 0; }
-    for ( int i = 0; i < x; i++){nombre[i] = "null"; }
-    for ( int i = 0; i < x; i++){marca[i] = "null"; }
-    for ( int i = 0; i < x; i++){color[i] = "null"; }
     for ( int i = 0; i < x; i++){preCompra[i] = 0; }
-    for ( int i = 0; i < x; i++){preVenta[i] = 0; }
-    for ( int i = 0; i < x; i++){porcenDesMax[i] = 0; }
-    for ( int i = 0; i < x; i++){unidExis[i] = 0; }
-    for ( int i = 0; i < x; i++){metrica[i] = "null"; }
-    for ( int i = 0; i < x; i++){categoria[i] = "null"; }
+    for ( int i = 0; i < x; i++){cantidades[i] = 0; }
     
     if(1==1) {
-        codigo[0] = 5050;
-        nombre[0] = "zapato" ;
-        marca[0] = "zap" ;
-        color[0] = "rojo" ;
-        preCompra[0] = 10000 ;
-        preVenta[0] = 12000 ;
-        porcenDesMax[0] = -1 ;
-        unidExis[0] = 45 ;
-        metrica[0] = "talla" ;
-        categoria[0] = "calzado" ;
+        fecha[0] = 5050;
+        proveedor[0] = "zapato" ;
+        codigo[0] = 10000 ;
+        preCompra[0] = 12000 ;
+        cantidades[0] = 4 ;
     }
 
     while (true) {
@@ -384,24 +342,18 @@ int main() {
     
     cout << "Introduzca la operacion a realizar"<<endl;
 
+    printInt(fecha, x);
+    printArr(proveedor, x);
     printInt(codigo, x);
-    printArr(nombre, x);
-    printArr(marca, x);
-    printArr(color, x);
     printInt(preCompra, x);
-    printInt(preVenta, x);
-    printInt(porcenDesMax, x);
-    printInt(unidExis, x);
-    printArr(metrica, x);
-    printArr(categoria, x);
+    printInt(cantidades, x);
     
     cout << "f | realizar compra" << endl;
     
     /*
     cout << "i | insertar valor" << endl;
-    cout << "e | eliminar valor" << endl;*/
+    cout << "e | eliminar valor" << endl;
     cout << "b | buscar valor" << endl;
-    /*
     cout << "t | obtener tamano de la lista" << endl;
     cout << "a | acceder a un valor en una posicion" << endl<< endl;
     cout << "u | aplicar bubble sort" << endl;
@@ -410,7 +362,7 @@ int main() {
 
     cin >> ansx;
 
-    control(codigo, ansx, x, false);
+    control(fecha, ansx, x, false);
         
     }
     
