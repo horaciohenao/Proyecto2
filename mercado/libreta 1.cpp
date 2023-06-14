@@ -230,18 +230,32 @@ int bcontrol(int* array, char ope, int x, int val) {
 
 void control(int* array, char ope, int x, bool t) {
     if ( ope == 'i' ){
-        if(t==false){cout << endl << "Comando deshabilitado"<<endl;return;}
-        int ansx;
-        cout << endl << "Ingrese el valor que desea introducir: ";
-        cin >> ansx;
-        if(ansx==0){cout << endl << "0 no se permite en este programa"<<endl;return;}
-        cout << endl << "Ingrese el valor que desea introducir: ";
-        for (int i = 0; i < x; i++){
-            if(array[i]==0) {
-                array[i] = ansx;
-                return;
+        int ansx, dif = 0;
+        for ( int i = 0; i < x; i++){
+            if (i==0) {
+                break;
             }
+            ansx += preCompra[i]; 
         }
+        cout << "Inversion total: " << ansx <<endl;
+        ansx = 0;
+        for ( int i = 0; i < x; i++){
+            if (i==0) {
+                break;
+            }
+            dif += preVenta[i]; 
+        }
+        cout << "Diferencia total: " << ansx - dif <<endl;
+        ansx = 0;
+        for ( int i = 0; i < x; i++){
+            if (i==0) {
+                break;
+            }
+            ansx += preVenta[i]; 
+        }
+        cout << "Ganacia total: " <<  ansx  <<endl;
+        ansx = 0;
+
     }
 	else if ( ope == 'e' ){
         if(t==false){cout << endl << "Comando deshabilitado"<<endl;return;}
@@ -401,8 +415,8 @@ int main() {
     cout << "i | insertar valor" << endl;
     cout << "e | eliminar valor" << endl;*/
     cout << "b | buscar valor" << endl;
-    /*
-    cout << "t | obtener tamano de la lista" << endl;
+    
+    cout << "t | calcular total" << endl;/*
     cout << "a | acceder a un valor en una posicion" << endl<< endl;
     cout << "u | aplicar bubble sort" << endl;
     cout << "n | aplicar insertion sort" << endl;
