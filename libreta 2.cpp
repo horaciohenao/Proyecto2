@@ -14,6 +14,8 @@ string proveedor[x];
 int codigo[x];
 int preCompra[x];
 int cantidades[x];
+char estado[x];
+string motivo[x];
 
 void printInt(int* array, int size ) {
     cout << endl << "[ ";
@@ -36,6 +38,22 @@ void printArr(string* array, int size ) {
             cout << "_ ";
         } else {
             cout << array[i] << " ";
+        }
+    }
+    cout << "]" << endl << endl;
+}
+
+void printChar(char* array, int size) {
+    cout << endl << "[ ";
+    for (int i = 0; i < size; i++){
+        if (array[i] == '1') {
+            cout << "exito ";
+        } else if (array[i] == '2') {
+            cout << "cancelada ";
+        }  else if (array[i] == '3') {
+            cout << "esperando ";
+        } else {
+            cout << "_ ";
         }
     }
     cout << "]" << endl << endl;
@@ -248,14 +266,21 @@ void control(int* array, char ope, int x, bool t) {
         }
     }
 	else if ( ope == 'b' ){
-        if(t==false){cout << endl << "Comando deshabilitado"<<endl;return;}
         int ansx;
-        cout << "Ingrese un valor para buscar: ";
+        cout << "Ingrese un codigo para buscar: ";
         cin >> ansx;
         for (int i = 0; i < x; i++){
             if(array[i]==ansx) {
                 cout << "El valor esta en la posicion (primera coincidencia) " << i <<endl;
-            return;
+                cout << "Ingrese el nuevo estado de venta del producto: (1 exito, 2 cancelada)";
+                cin>>estado[i];
+                if (ansx=='2'){
+                    cout << "agregue un motivo para esto"<<endl;
+                    cin>>motivo[x];
+                } else if (ansx=='1'){
+                    motivo[i] = "Na";
+                }
+                return;
             }
         } 
         cout << "El valor no se encontro en la lista"<<endl;
@@ -310,6 +335,7 @@ void control(int* array, char ope, int x, bool t) {
         codigo[cachein] = codigov ;
         preCompra[cachein] = pcompra ;
         cantidades[cachein] = cantidadesv ;
+        estado[cachein] = '3';
 
         cout << "El total a pagar CON IVA es: " << (pcompra*1,19) << endl;
         cout << "El total a pagar SIN IVA es: " << (pcompra) << endl;
@@ -331,13 +357,17 @@ int main() {
     for ( int i = 0; i < x; i++){codigo[i] = 0; }
     for ( int i = 0; i < x; i++){preCompra[i] = 0; }
     for ( int i = 0; i < x; i++){cantidades[i] = 0; }
+    for ( int i = 0; i < x; i++){estado[i] = '0'; }
+    for ( int i = 0; i < x; i++){motivo[i] = "null"; }
     
     if(1==1) {
-        fecha[0] = 5050;
+        fecha[0] = 230501;
         proveedor[0] = "zapato" ;
         codigo[0] = 10000 ;
         preCompra[0] = 12000 ;
         cantidades[0] = 4 ;
+        estado[0] = 1;
+        motivo[0] = "NA";
     }
 
     while (true) {
@@ -351,13 +381,15 @@ int main() {
     printInt(codigo, x);
     printInt(preCompra, x);
     printInt(cantidades, x);
+    printChar(estado, x);
+    printArr(motivo, x);
     
     cout << "f | realizar compra" << endl;
     
     /*
     cout << "i | insertar valor" << endl;
-    cout << "e | eliminar valor" << endl;
-    cout << "b | buscar valor" << endl;
+    cout << "e | eliminar valor" << endl;*/
+    cout << "b | buscar venta" << endl;/*
     cout << "t | obtener tamano de la lista" << endl;
     cout << "a | acceder a un valor en una posicion" << endl<< endl;
     cout << "u | aplicar bubble sort" << endl;
