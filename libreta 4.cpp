@@ -345,7 +345,7 @@ int main() {
 
     while (true) {
     
-    cout << "= Lista de clientes ="<<endl<<endl;
+    cout << "= Lista de ventas ="<<endl<<endl;
     
     cout << "Introduzca la operacion a realizar"<<endl;
 

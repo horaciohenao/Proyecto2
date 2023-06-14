@@ -292,17 +292,20 @@ void control(int* array, char ope, int x, bool t) {
             }
         }
     }
-	else if ( ope == 'a' ){
-        if(t==false){cout << endl << "Comando deshabilitado"<<endl;return;}
+	else if ( ope == 'v' ){
         int ansx;
-        cout << "Ingrese una posicion para obtener el valor: ";
+
+        cout << "Introduzca la cedula: " << endl;
         cin >> ansx;
-        
-            if(array[ansx]!=0) {
-                cout << endl << "El valor en la posicion " << ansx <<" es:" <<  array[ansx] << endl;
-            } else {
-                cout << endl << "El valor en la posicion " << ansx <<" esta vacio" << endl;
+        for (int i = 0; i < x; i++){
+            if(array[i]==ansx) {
+                cout << "El valor esta en la posicion (primera coincidencia) " << i <<endl;
+                cout << "Es VIP? (1 si, 2  no): " << endl;
+                cin >> vip[x];
+                return;
             }
+        } 
+        cout << "El valor no se encontro en la lista"<<endl;
     }
     else if ( ope == 'f' ) {
         int cachein, cedulav;
@@ -394,8 +397,8 @@ int main() {
     cout << "i | insertar valor" << endl;
     cout << "e | eliminar valor" << endl;
     cout << "b | buscar valor" << endl;
-    cout << "t | obtener tamano de la lista" << endl;
-    cout << "a | acceder a un valor en una posicion" << endl<< endl;
+    cout << "t | obtener tamano de la lista" << endl;*/
+    cout << "v | actualizar estado VIP" << endl<< endl;/*
     cout << "u | aplicar bubble sort" << endl;
     cout << "n | aplicar insertion sort" << endl;
     cout << "l | aplicar selection sort" << endl;*/

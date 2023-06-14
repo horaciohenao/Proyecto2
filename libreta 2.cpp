@@ -257,13 +257,18 @@ void control(int* array, char ope, int x, bool t) {
         }
     }
 	else if ( ope == 'e' ){
-        if(t==false){cout << endl << "Comando deshabilitado"<<endl;return;}
+        int ansx;
+        cout << "Ingrese un codigo para buscar: ";
+        cin >> ansx;
         for (int i = 0; i < x; i++){
-            if(array[i]!=0) {
-                array[i] = 0;
-                return;
+            if(array[i]==ansx) {
+                cout << "El valor esta en la posicion (primera coincidencia) " << i <<endl;
+                cout << "Ingrese la cantidad de productos vendidos (para restar): ";
+                cin>>ansx;
+                cantidades[i]-=ansx;
             }
-        }
+        } 
+        cout << "El valor no se encontro en la lista"<<endl;
     }
 	else if ( ope == 'b' ){
         int ansx;
@@ -298,7 +303,7 @@ void control(int* array, char ope, int x, bool t) {
             }
         }
     }
-	else if ( ope == 'a' ){
+	else if ( ope == 'v' ){
         if(t==false){cout << endl << "Comando deshabilitado"<<endl;return;}
         int ansx;
         cout << "Ingrese una posicion para obtener el valor: ";
@@ -387,18 +392,18 @@ int main() {
     cout << "f | realizar compra" << endl;
     
     /*
-    cout << "i | insertar valor" << endl;
-    cout << "e | eliminar valor" << endl;*/
+    cout << "i | insertar valor" << endl;*/
+    cout << "e | reduciar cantidad producto" << endl;
     cout << "b | buscar venta" << endl;/*
     cout << "t | obtener tamano de la lista" << endl;
-    cout << "a | acceder a un valor en una posicion" << endl<< endl;
+    cout << "v | acceder a un valor en una posicion" << endl<< endl;
     cout << "u | aplicar bubble sort" << endl;
     cout << "n | aplicar insertion sort" << endl;
     cout << "l | aplicar selection sort" << endl;*/
 
     cin >> ansx;
 
-    control(fecha, ansx, x, false);
+    control(codigo, ansx, x, false);
         
     }
     
