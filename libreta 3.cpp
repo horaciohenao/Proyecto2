@@ -270,8 +270,12 @@ void control(int* array, char ope, int x, bool t) {
         int ansx;
         int vent;
         int cachein;
-        cout << "Ingrese un codigo para buscar: ";
+        cout << "Ingrese un una cedula para buscar: ";
         cin >> ansx;
+        if ( bcontrol(array, 'b', x, ansx)==0 ) {
+        cout << "Se le puede aplicar un descuento del 25% a este cliente"<<endl;
+        return;
+        }
         for (int i = 0; i < x; i++){
             if(array[i]==ansx) {
                 vent++;
@@ -282,9 +286,9 @@ void control(int* array, char ope, int x, bool t) {
         cachein = bcontrol(array, 't', x, 1);
 
         if (vent>(cachein/2)){
-            cout << "Se le puede aplicar un descuento a este cliente" << vent <<endl;
+            cout << "Se le puede aplicar un descuento del 10% a este cliente" << vent <<endl;
         } else {
-            cout << "No aplicacble para descuentos " << vent <<endl;
+            cout << "Se le puede aplicar un descuento del 15% a este cliente " << vent <<endl;
         }
         
 
