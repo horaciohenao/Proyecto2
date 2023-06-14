@@ -267,18 +267,28 @@ void control(int* array, char ope, int x, bool t) {
         }
     }
 	else if ( ope == 'b' ){
-        if(t==false){cout << endl << "Comando deshabilitado"<<endl;return;}
         int ansx;
-        cout << "Ingrese un valor para buscar: ";
+        int vent;
+        int cachein;
+        cout << "Ingrese un codigo para buscar: ";
         cin >> ansx;
         for (int i = 0; i < x; i++){
             if(array[i]==ansx) {
-                cout << "El valor esta en la posicion (primera coincidencia) " << i <<endl;
-            return;
+                vent++;
             }
         } 
-        cout << "El valor no se encontro en la lista"<<endl;
-    }
+        cout << "El numero de ventas para este cliente es de " << vent <<endl;
+        
+        cachein = bcontrol(array, 't', x, 1);
+
+        if (vent>(cachein/2)){
+            cout << "Se le puede aplicar un descuento a este cliente" << vent <<endl;
+        } else {
+            cout << "No aplicacble para descuentos " << vent <<endl;
+        }
+        
+
+        }
 	else if ( ope == 't' ){
         if(t==false){cout << endl << "Comando deshabilitado"<<endl;return;}
         for (int i = 0; i < x; i++){
@@ -395,8 +405,8 @@ int main() {
     
     /*
     cout << "i | insertar valor" << endl;
-    cout << "e | eliminar valor" << endl;
-    cout << "b | buscar valor" << endl;
+    cout << "e | eliminar valor" << endl;*/
+    cout << "b | verificar descuento" << endl;/*
     cout << "t | obtener tamano de la lista" << endl;*/
     cout << "v | actualizar estado VIP" << endl<< endl;/*
     cout << "u | aplicar bubble sort" << endl;

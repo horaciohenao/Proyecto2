@@ -337,10 +337,10 @@ int main() {
 
     
     if(1==1) {
-    fecha[0] = 230401;
-    cedulaCliente[0] = 123456789;
-    metodoPago[0] = "Tarjeta";
-    modalidad[0] = '1';
+        fecha[0] = 230401;
+        cedulaCliente[0] = 123456789;
+        metodoPago[0] = "Tarjeta";
+        modalidad[0] = '1';
     }
 
     while (true) {
