@@ -345,6 +345,9 @@ void control(int* array, char ope, int x, bool t) {
         cout << "El total a pagar CON IVA es: " << (pcompra*1,19) << endl;
         cout << "El total a pagar SIN IVA es: " << (pcompra) << endl;
 
+        if (cantidades[cachein]<5){cout << "Las unidades disponibles son " << cantidades[cachein] << endl;}
+        
+
     }
     else {
         cout << endl << "OPERACION NO VALIDA" << endl;
